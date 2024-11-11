@@ -8,6 +8,7 @@ export const addBook = async (e: any) => {
 
   try {
     // client.models
+    // @ts-ignore
     const { errors, data: newBook } = await client.models.BookList.create({
       title: "The Alchemist",
       summary:
@@ -16,9 +17,6 @@ export const addBook = async (e: any) => {
       createdAt: new Date(),
       due: new Date(),
     });
-
-    console.log("NEW BOOK", newBook);
-    
 
     return newBook;
   } catch (error) {}

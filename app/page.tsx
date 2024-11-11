@@ -14,7 +14,8 @@ const getData = async () => {
   });
 
   const client = generateClient<Schema>();
-  const { data } = await client.models.BookList.list();
+  // @ts-ignore
+  const { data } = await client.models?.BookList.list();
 
   return {
     data,
@@ -80,14 +81,17 @@ export default async function Home() {
 
         <div className="mt-24">
           <ul>
-            {data.map((book) => {
-              return (
-                <li key={book.id}>
-                  <h3>{book.title}</h3>
-                  <p>{book.summary}</p>
-                </li>
-              );
-            })}
+            {
+              // @ts-ignore
+              data.map((book) => {
+                return (
+                  <li key={book.id}>
+                    <h3>{book.title}</h3>
+                    <p>{book.summary}</p>
+                  </li>
+                );
+              })
+            }
           </ul>
         </div>
       </div>
