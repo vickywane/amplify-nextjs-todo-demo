@@ -6,7 +6,7 @@ import { generateClient } from "aws-amplify/api";
 import { fetchUserAttributes, signOut } from "aws-amplify/auth";
 import { Schema } from "aws-amplify/datastore";
 import { useEffect } from "react";
-import outputs from "@/amplify_outputs.json";
+import outputs from "../amplify_outputs.json";
 
 const getData = async () => {
   Amplify.configure(outputs, {
